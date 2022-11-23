@@ -1,9 +1,8 @@
-import puppeteer from "puppeteer"
-import { Cinema } from "./lib/cinema"
-import { EverymanCinema } from "./lib/everyman-cinema"
-import { ReelCinema } from "./lib/reel-cinema"
-import { getRandomElementFromArray } from "./lib/utils"
-import { VueCinema } from "./lib/vue-cinema"
+import { Cinema } from "./src/cinema"
+import { EverymanCinema } from "./src/everyman-cinema"
+import { ReelCinema } from "./src/reel-cinema"
+import { getRandomElementFromArray } from "./src/utils"
+import { VueCinema } from "./src/vue-cinema"
 
 const cinemasToChooseFrom: Cinema[] = [
     new VueCinema("accrington"),

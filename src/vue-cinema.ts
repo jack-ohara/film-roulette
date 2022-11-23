@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer"
+import chromium from "@sparticuz/chrome-aws-lambda"
 import { Cinema } from "./cinema";
 import { dateIsToday, wait } from "./utils";
 
@@ -11,7 +11,14 @@ export class VueCinema extends Cinema {
     }
 
     async findRandomFilm(date: Date): Promise<string> {
-        const browser = await puppeteer.launch()
+        const executablePath = await chromium.executablePath
+        const browser = await chromium.puppeteer.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: executablePath,
+            headless: chromium.headless,
+            ignoreHTTPSErrors: true,
+        })
 
         try {
             console.log(`Finding random film at Vue ${this.location}`)

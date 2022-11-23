@@ -1,4 +1,5 @@
-import puppeteer, { Page } from "puppeteer"
+import { Page } from "puppeteer-core"
+import chromium from "@sparticuz/chrome-aws-lambda"
 import { Cinema } from "./cinema";
 import { dateIsToday } from "./utils";
 
@@ -12,7 +13,14 @@ export class ReelCinema extends Cinema {
     }
 
     async findRandomFilm(date: Date): Promise<string> {
-        const browser = await puppeteer.launch()
+        const executablePath = await chromium.executablePath
+        const browser = await chromium.puppeteer.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: executablePath,
+            headless: chromium.headless,
+            ignoreHTTPSErrors: true,
+        })
 
         try {
             console.log(`Finding random film at Reel ${this.location}`)
