@@ -12,6 +12,7 @@ export class VueCinema extends Cinema {
 
     async findRandomFilm(date: Date): Promise<string> {
         const executablePath = await chromium.executablePath
+        console.log('headless:', chromium.headless)
         const browser = await chromium.puppeteer.launch({
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
