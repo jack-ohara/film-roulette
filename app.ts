@@ -7,11 +7,11 @@ import { VueCinema } from "./src/vue-cinema";
 
 const cinemasToChooseFrom: Cinema[] = [
     new VueCinema("accrington"),
-    new VueCinema("blackburn"),
-    new VueCinema("preston"),
-    new EverymanCinema("clitheroe"),
-    new ReelCinema("burnley"),
-    new ReelCinema("blackburn"),
+    // new VueCinema("blackburn"),
+    // new VueCinema("preston"),
+    // new EverymanCinema("clitheroe"),
+    // new ReelCinema("burnley"),
+    // new ReelCinema("blackburn"),
 ]
 
 async function getRandomFilm() {

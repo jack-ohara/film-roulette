@@ -1,6 +1,6 @@
 import chromium from "@sparticuz/chrome-aws-lambda"
 import { Cinema } from "./cinema";
-import { dateIsToday, wait } from "./utils";
+import { dateIsToday, saveFileToS3, wait } from "./utils";
 
 export class VueCinema extends Cinema {
     private location: string
@@ -28,6 +28,8 @@ export class VueCinema extends Cinema {
             console.log("Loading home page...")
             await page.goto(`https://www.myvue.com/cinema/${this.location}/whats-on`)
             await page.waitForNetworkIdle()
+
+            await saveFileToS3(await page.screenshot() as Buffer, "vue-home-page.png")
 
             try {
                 await page.click(".accept-btn-container button")
