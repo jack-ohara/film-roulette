@@ -29,6 +29,8 @@ export class VueCinema extends Cinema {
             await page.goto(`https://www.myvue.com/cinema/${this.location}/whats-on`)
             await page.waitForNetworkIdle()
 
+            await wait(1000)
+
             await saveFileToS3(await page.screenshot() as Buffer, "vue-home-page.png")
 
             try {
