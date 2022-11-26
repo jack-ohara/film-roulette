@@ -16,7 +16,7 @@ export class VueCinema extends Cinema {
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
             executablePath: executablePath,
-            headless: false,
+            headless: chromium.headless,
             ignoreHTTPSErrors: true,
         })
 
@@ -58,9 +58,7 @@ export class VueCinema extends Cinema {
 
                 if (!dayChanged) throw Error("Unable to change the day")
                 console.log("Changed the day")
-                await page.screenshot({ path: "after-click-before-wait.png", fullPage: true })
                 await wait(500)
-                await page.screenshot({ path: "after-click-after-wait.png", fullPage: true })
             }
 
             console.log("Querying page")

@@ -19,6 +19,7 @@ export function wait(timeInMiliseconds: number): Promise<unknown> {
 }
 
 export async function saveFileToS3(file: Buffer, name: string) {
+    console.log(`Uploading ${name} to s3`)
     const bucketName = process.env.S3_BUCKET_NAME
 
     if (!bucketName) {
