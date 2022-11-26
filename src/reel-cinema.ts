@@ -18,7 +18,7 @@ export class ReelCinema extends Cinema {
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
             executablePath: executablePath,
-            headless: chromium.headless,
+            headless: false,
             ignoreHTTPSErrors: true,
         })
 
